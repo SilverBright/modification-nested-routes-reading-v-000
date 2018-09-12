@@ -3980,3 +3980,33 @@ Processing by AuthorsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 4]]
   Rendered authors/show.html.erb within layouts/application (9.1ms)
 Completed 200 OK in 32ms (Views: 23.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/authors/4/posts/new" for 73.170.200.66 at 2018-09-12 00:59:14 +0000
+Cannot render console from 73.170.200.66! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#new as HTML
+  Parameters: {"author_id"=>"4"}
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 73.170.200.66 at 2018-09-12 00:59:27 +0000
+Cannot render console from 73.170.200.66! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CFYph/Qyl6OF8/FPhbyEj0DeZRLhuiyfyov3ptTToGVN5IqTfYt/Y4nAP7CrpgxQb0XaGUkcF7EZWKvI2Aynxw==", "post"=>{"author_id"=>"4", "title"=>"Aloha", "description"=>"Bla bla bla"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "description", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Aloha"], ["description", "Bla bla bla"], ["author_id", 4], ["created_at", "2018-09-12 00:59:27.749144"], ["updated_at", "2018-09-12 00:59:27.749144"]]
+  [1m[35m (15.7ms)[0m  commit transaction
+Redirected to http://165.227.31.156:45103/posts/19
+Completed 302 Found in 21ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/posts/19" for 73.170.200.66 at 2018-09-12 00:59:27 +0000
+Cannot render console from 73.170.200.66! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.3ms)
