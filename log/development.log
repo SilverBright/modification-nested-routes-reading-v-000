@@ -4019,3 +4019,36 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 19]]
   [1m[35mAuthor Load (0.3ms)[0m  SELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1  [["id", 4]]
   Rendered posts/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 46ms (Views: 33.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/authors/4/posts/19/edit" for 73.170.200.66 at 2018-09-12 01:01:52 +0000
+Cannot render console from 73.170.200.66! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#edit as HTML
+  Parameters: {"author_id"=>"4", "id"=>"19"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 19]]
+  Rendered posts/_form.html.erb (2.1ms)
+  Rendered posts/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/19" for 73.170.200.66 at 2018-09-12 01:02:07 +0000
+Cannot render console from 73.170.200.66! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DI9MzbfuxI/VV/eS7ISn4w/l+3m5wfHaaw1jjGigjzdJPe/ZPlcsT9lkOW3Cni88IH5EchFnyvS43j/iZH+IlQ==", "post"=>{"author_id"=>"4", "title"=>"Aloha - Foo Bar", "description"=>"Bla bla bla - blee"}, "commit"=>"Update Post", "id"=>"19"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", "Aloha   Foo Bar"], ["description", "Bla bla bla - blee"], ["updated_at", "2018-09-12 01:02:07.762824"], ["id", 19]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://165.227.31.156:45103/posts/19
+Completed 302 Found in 8ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/19" for 73.170.200.66 at 2018-09-12 01:02:07 +0000
+Cannot render console from 73.170.200.66! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.2ms)
